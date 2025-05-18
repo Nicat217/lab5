@@ -1,0 +1,26 @@
+def menfi_hasil(A):
+    n = len(A)
+    m = len(A[0]) if n > 0 else 0
+    hasil = [1] * m
+    flag = [False] * m
+
+    for i in range(n):
+        for j in range(m):
+            if A[i][j] < 0:
+                hasil[j] *= A[i][j]
+                flag[j] = True
+
+    for j in range(m):
+        if not flag[j]:
+            hasil[j] = 0
+
+    return hasil
+
+A = [
+    [1, -2, 3],
+    [-4, 5, -6],
+    [-7, -8, 9]
+]
+
+nəticə = menfi_hasil(A)
+print("Hər sütundakı mənfi elementlərin hasil:", nəticə)
